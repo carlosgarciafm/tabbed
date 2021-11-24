@@ -1,11 +1,13 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const char font[]        = "monospace-9";
-static const char* normbgcolor  = "#222222";
-static const char* normfgcolor  = "#cccccc";
-static const char* selbgcolor   = "#555555";
-static const char* selfgcolor   = "#ffffff";
+static char* font         = "monospace:size=9";
+static char* normbgcolor  = "#222222";
+static char* normfgcolor  = "#cccccc";
+static char* selbgcolor   = "#555555";
+static char* selfgcolor   = "#ffffff";
+static char* urgbgcolor   = "#111111";
+static char* urgfgcolor   = "#cc0000";
 static const char before[]      = "<";
 static const char after[]       = ">";
 static const int  tabwidth      = 200;
@@ -26,6 +28,19 @@ static Bool npisrelative  = False;
 		p, winid, NULL \
 	} \
 }
+
+/*
+ * Xresources preferences to load at startup
+ */
+ResourcePref resources[] = {
+		{ "font",             STRING,  &font },
+		{ "background",       STRING,  &normbgcolor },
+		{ "foreground",       STRING,  &normfgcolor },
+		{ "foreground",       STRING,  &selbgcolor },
+		{ "background",       STRING,  &selfgcolor },
+		{ "color1",           STRING,  &urgbgcolor },
+		{ "foreground",       STRING,  &urgfgcolor },
+};
 
 #define MODKEY ControlMask
 static Key keys[] = { \
