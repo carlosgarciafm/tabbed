@@ -18,8 +18,8 @@ static const Bool foreground    = True;
  * then the current position is changed + newposition. If npisrelative
  * is False, then newposition is an absolute position.
  */
-static int  newposition   = 0;
-static Bool npisrelative  = False;
+static int  newposition   = 1;
+static Bool npisrelative  = True;
 
 #define SETPROP(p) { \
 	.v = (char *[]){ "/bin/sh", "-c", \
@@ -42,7 +42,7 @@ ResourcePref resources[] = {
 		{ "foreground",       STRING,  &urgfgcolor },
 };
 
-#define MODKEY ControlMask
+#define MODKEY Mod1Mask
 static Key keys[] = { \
 	/* modifier                     key        function        argument */
 	{ MODKEY|ShiftMask,             XK_Return, focusonce,      { 0 } },
